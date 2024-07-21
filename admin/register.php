@@ -92,6 +92,17 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
+                    <!-- Role selection field -->
+                    <div class="col-12">
+                      <label for="yourRole" class="form-label">Role</label>
+                      <select name="role" class="form-control" id="yourRole" required>
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                      </select>
+                      <div class="invalid-feedback">Please select a role.</div>
+                    </div>
+
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
@@ -109,8 +120,6 @@
 
                 </div>
               </div>
-
-              
 
             </div>
           </div>
