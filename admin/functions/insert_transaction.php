@@ -37,7 +37,7 @@ if (isset($_POST["submit"])) {
             // A record with the same period already exists, handle accordingly
             echo "Record with the same period already exists!";
             echo '<form id="myForm" action="../profile.php?error=exist" method="post">';
-            echo '<input type="hidden" name="emps_id" value="'.$emp_id.'">';
+            echo '<input type="hidden" name="emps_id" value="' . $emp_id . '">';
             echo '</form>';
             echo '<script>
                     document.addEventListener("DOMContentLoaded", function() {
@@ -75,7 +75,8 @@ if (isset($_POST["submit"])) {
             $transactionId = $conn->lastInsertId();
 
 
-            function redirectToPrint($formAction, $eid, $tid, $pd) {
+            function redirectToPrint($formAction, $eid, $tid, $pd)
+            {
                 echo '<form id="myForm" action="' . $formAction . '" method="post">';
                 echo '<input type="hidden" name="emps_id" value="' . $eid . '">';
                 echo '<input type="hidden" name="trans_id" value="' . $tid . '">';
@@ -86,9 +87,9 @@ if (isset($_POST["submit"])) {
                                 document.getElementById("myForm").submit();
                             });
                           </script>';
-                }
-                
-                
+            }
+
+
 
             // Insert data into tbl_attendance
             $absent = $_POST['absent']; // You need to replace 'absent' with the actual field from the form
@@ -113,7 +114,7 @@ if (isset($_POST["submit"])) {
             if (!empty($_POST['credit_amount']) && $_POST['credit_amount'] != '0') {
                 $amount = $_POST['credit_amount'];
                 $cred_desc = $_POST['cred_desc'];
-                $status ='Debit';
+                $status = 'Debit';
 
                 // SQL query to insert data into tbl_borrow
                 $borrowSql = "INSERT INTO tbl_borrows (employee_id, transaction_id, amount, type, status, date)
@@ -142,7 +143,6 @@ if (isset($_POST["submit"])) {
                 //       </script>';
 
                 redirectToPrint("../slip-print.php", $emp_id, $transactionId, $period);
-
             } else {
                 // echo "Data inserted successfully!";
 
@@ -157,7 +157,6 @@ if (isset($_POST["submit"])) {
                 //       </script>';
 
                 redirectToPrint("../slip-print.php", $emp_id, $transactionId, $period);
-
             }
         }
     } catch (PDOException $e) {
@@ -171,4 +170,3 @@ if (isset($_POST["submit"])) {
 } else {
     header("location: ../profile.php?error=error");
 }
-?>

@@ -9,26 +9,28 @@ exit();
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="lgassets/fonts/icomoon/style.css">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="lgassets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="lgassets/fonts/icomoon/style.css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="lgassets/css/bootstrap.min.css">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="lgassets/css/style.css">
+  <link rel="stylesheet" href="lgassets/css/owl.carousel.min.css">
 
-    <title>Login #6</title>
-  </head>
-  <body>
-  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="lgassets/css/bootstrap.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="lgassets/css/style.css">
+
+  <title>Login #6</title>
+</head>
+
+<body>
+
 
   <div class="d-lg-flex half">
     <div class="bg order-1 order-md-2" style="background-image: url('lgassets/images/bg_1.jpg');"></div>
@@ -50,9 +52,9 @@ exit();
               <div class="form-group last mb-3">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="pass" id="password" required>
-                
+
               </div>
-              
+
               <!-- <div class="d-flex mb-5 align-items-center">
                 <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
                   <input type="checkbox" checked="checked"/>
@@ -82,14 +84,15 @@ exit();
       </div>
     </div>
 
-    
-  </div>
-    
-    
 
-    <script src="lgassets/js/jquery-3.3.1.min.js"></script>
-    <script src="lgassets/js/popper.min.js"></script>
-    <script src="lgassets/js/bootstrap.min.js"></script>
-    <script src="lgassets/js/main.js"></script>
-  </body>
+  </div>
+
+
+
+  <script src="lgassets/js/jquery-3.3.1.min.js"></script>
+  <script src="lgassets/js/popper.min.js"></script>
+  <script src="lgassets/js/bootstrap.min.js"></script>
+  <script src="lgassets/js/main.js"></script>
+</body>
+
 </html>
