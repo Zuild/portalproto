@@ -1,7 +1,7 @@
 <?php
 include_once "connect.php";
 
-if (isset($_POST["login"])) {
+if (isset($_POST["login"])){
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
@@ -26,9 +26,9 @@ if (isset($_POST["login"])) {
             if ($user["user_role"] == "admin") {
                 header("location:../index.php");
             } elseif ($user["user_role"] == "teacher") {
-                header("location:../index2.php");
+                header("location:../../instructor/index.php");
             } elseif ($user["user_role"] == "student") {
-                header("location:../index3.php");
+                header("location:../../students/index.php");
             } else {
                 header("location:../login.php?error=unknownrole");
             }
@@ -39,3 +39,4 @@ if (isset($_POST["login"])) {
         exit;
     }
 }
+

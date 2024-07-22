@@ -40,95 +40,111 @@
 
 <body>
 
-  <main>
+<main>
     <div class="container">
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <div class="d-flex justify-content-center py-4">
+                            <a href="index.html" class="logo d-flex align-items-center w-auto">
+                                <img src="../assets/img/logo.png" alt="">
+                                <span class="d-none d-lg-block">SCC-SYSTEM</span>
+                            </a>
+                        </div><!-- End Logo -->
 
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="../assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">SCC-SYSTEM</span>
-                </a>
-              </div><!-- End Logo -->
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                                    <p class="text-center small">Enter your personal details to create account</p>
+                                </div>
 
-              <div class="card mb-3">
+                                <!-- Error Messages -->
+                                <?php
+                                if (isset($_GET['error'])) {
+                                    if ($_GET['error'] == "emptyinput") {
+                                        echo '<div class="alert alert-danger" role="alert">Fill in all fields!</div>';
+                                    } elseif ($_GET['error'] == "invalidusername") {
+                                        echo '<div class="alert alert-danger" role="alert">Choose a proper username!</div>';
+                                    } elseif ($_GET['error'] == "invalidpassword") {
+                                        echo '<div class="alert alert-danger" role="alert">Password must be at least 6 characters long, contain at least one capital letter and one special character!</div>';
+                                    } elseif ($_GET['error'] == "userexists") {
+                                        echo '<div class="alert alert-danger" role="alert">Username or email already exists!</div>';
+                                    } elseif ($_GET['error'] == "none") {
+                                        echo '<div class="alert alert-success" role="alert">You have signed up!</div>';
+                                    }
+                                }
+                                ?>
 
-                <div class="card-body">
+                                <form class="row g-3 needs-validation" action="includes/register.inc.php" method="post">
+                                    <div class="col-12">
+                                        <label for="yourName" class="form-label">Your First Name</label>
+                                        <input type="text" name="fname" class="form-control" id="yourName" required value="<?php echo isset($_GET['fname']) ? htmlspecialchars($_GET['fname']) : ''; ?>">
+                                        <div class="invalid-feedback">Please, enter your first name!</div>
+                                    </div>
 
-                  <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
-                  </div>
+                                    <div class="col-12">
+                                        <label for="yourName" class="form-label">Your Last Name</label>
+                                        <input type="text" name="lname" class="form-control" id="yourName" required value="<?php echo isset($_GET['lname']) ? htmlspecialchars($_GET['lname']) : ''; ?>">
+                                        <div class="invalid-feedback">Please, enter your last name!</div>
+                                    </div>
 
-                  <form class="row g-3 needs-validation" action="includes/register.inc.php" method="post">
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="fname" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                                    <div class="col-12">
+                                        <label for="yourEmail" class="form-label">Your Email</label>
+                                        <input type="email" name="email" class="form-control" id="yourEmail" required value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>">
+                                        <div class="invalid-feedback">Please enter a valid Email address!</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="yourUsername" class="form-label">Username</label>
+                                        <div class="input-group has-validation">
+                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                            <input type="text" name="username" class="form-control" id="yourUsername" required value="<?php echo isset($_GET['username']) ? htmlspecialchars($_GET['username']) : ''; ?>">
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="yourPassword" class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                                        <div class="invalid-feedback">Please enter your password!</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="yourRole" class="form-label">Role</label>
+                                        <select name="role" class="form-control" id="yourRole" required>
+                                            <option value="admin" <?php echo (isset($_GET['role']) && $_GET['role'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                                            <option value="teacher" <?php echo (isset($_GET['role']) && $_GET['role'] == 'teacher') ? 'selected' : ''; ?>>Teacher</option>
+                                            <option value="student" <?php echo (isset($_GET['role']) && $_GET['role'] == 'student') ? 'selected' : ''; ?>>Student</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select a role.</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                                            <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                                            <div class="invalid-feedback">You must agree before submitting.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit" name="submit">Create Account</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="small mb-0">Already have an account? <a href="login.php">Log in</a></p>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-12">
-                      <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
-
-                    <!-- Role selection field -->
-                    <div class="col-12">
-                      <label for="yourRole" class="form-label">Role</label>
-                      <select name="role" class="form-control" id="yourRole" required>
-                        <option value="admin">Admin</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="student">Student</option>
-                      </select>
-                      <div class="invalid-feedback">Please select a role.</div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                        <div class="invalid-feedback">You must agree before submitting.</div>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" name="submit">Create Account</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="login.php">Log in</a></p>
-                    </div>
-                  </form>
-
-                </div>
-              </div>
 
             </div>
-          </div>
-        </div>
-
-      </section>
-
+        </section>
     </div>
-  </main><!-- End #main -->
+</main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
