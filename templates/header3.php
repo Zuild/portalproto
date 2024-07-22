@@ -26,12 +26,12 @@ $lname = $user['user_lname'];
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>MicroTech</title>
+  <title>Pay-App</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/miit.png" rel="icon">
+  <link href="../assets/img/favicon.png" rel="icon">
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -241,7 +241,7 @@ $lname = $user['user_lname'];
             <li class="dropdown-header">
               <h6>
                 <h6>
-                  <?php echo $lname ?><?php echo $fname ?>
+                  <?php echo $lname ?>, <?php echo $fname ?>
                 </h6>
             </li>
             <li>
@@ -299,7 +299,7 @@ $lname = $user['user_lname'];
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/index.php">
+        <a class="nav-link collapsed" href="../admin/index3.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -307,21 +307,42 @@ $lname = $user['user_lname'];
       <!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/employee.php">
+        <a class="nav-link collapsed" href="">
           <i class="ri ri-group-line"></i>
-          <span>Employee</span>
+          <span>Schedule</span>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/studentRecords.php">
-          <i class="ri ri-group-line"></i>
-          <span>Student</span>
-        </a>
-      </li>
+      <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="../admin/stud_recs.php">
+                    <i class="ri ri-group-line"></i>
+                    <span>Student</span>
+                </a>
+            </li>-->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/event.php">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri ri-group-line"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <!-- STUDY LOAD -->
+            <a href="#">
+              <i class="ri-booklet-fill"></i><span>Subjects</span>
+            </a>
+          </li>
+
+          <li>
+            <!-- TO GIVE GRADES-->
+            <a href="#">
+              <i class="ri-booklet-fill"></i><span>Grades</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
           <i class="ri-calendar-check-line"></i>
           <span>Events</span>
         </a>
@@ -334,29 +355,30 @@ $lname = $user['user_lname'];
         </a>
       </li>
 
+      <!--PAYMENT STATUS ONLY-->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/payment.php">
+        <a class="nav-link collapsed" href="#">
           <i class="bx bx-wallet"></i>
           <span>Payment</span>
         </a>
       </li>
+      <!--
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#">
+                    <i class="ri-user-fill"></i>
+                    <span>Users</span>
+                </a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../admin/compensation.php">
+                    <i class="bi bi-layout-text-window-reverse"></i>
+                    <span>Compensation</span>
+                </a>
+            </li>
+-->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/user.php">
-          <i class="ri-user-fill"></i>
-          <span>Users</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/compensation.php">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>Compensation</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/includes/logout.inc.php">
+        <a class="nav-link collapsed" href="">
           <i class="ri-logout-circle-r-line"></i>
           <span>Log out</span>
         </a>
